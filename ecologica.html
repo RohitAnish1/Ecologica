@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map with Markers</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsQC65SRqupoRCDvAmQv6c9-5clC2Nl9Q&callback=initMap" async defer></script>
+</head>
+<body>
+  <div id="map" style="height: 500px;"></div>
+
+  <script>
+    function initMap() {
+      const mapCenter = { lat: 24.66818, lng: 71.33144 }; // Set your desired map center location
+      const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: mapCenter,
+      });
+
+      // Sample data from your database (replace this with your data retrieval logic)
+      const locationsFromDatabase = [
+        { lat: 24.66818, lng: 71.33144 },
+        { lat: 24.66818, lng: 71.41106 },
+        // Add more location objects here
+      ];
+
+      // Create markers for each location
+      locationsFromDatabase.forEach(location => {
+        const marker = new google.maps.Marker({
+          position: location,
+          map: map,
+        });
+      });
+    }
+  </script>
+</body>
+</html>
